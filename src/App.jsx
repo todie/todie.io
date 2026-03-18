@@ -237,30 +237,35 @@ export default function App() {
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
-    const resize = () => { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight }
-    resize()
-    window.addEventListener('resize', resize)
     const ctx   = canvas.getContext('2d')
-    const cols  = Math.floor(canvas.width / 18)
-    const drops = Array.from({ length:cols }, () => Math.random() * -50)
     const chars = '01アイウエカキクケサシスセタチツテナニヌ$#@%&'
+    const S = 18
+    let cols, drops, offsets
+    const init = () => {
+      canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight
+      cols = Math.floor(canvas.width / S)
+      drops   = Array.from({ length:cols }, () => Math.random() * -50)
+      offsets = Array.from({ length:cols }, () => Math.random() * S - S/2)
+    }
+    init()
+    window.addEventListener('resize', init)
     let raf, last = 0
     const draw = ts => {
       if (ts - last > 60) {
         ctx.fillStyle = 'rgba(13,17,23,0.06)'; ctx.fillRect(0,0,canvas.width,canvas.height)
-        drops.forEach((y,i) => {
+        for (let i = 0; i < cols; i++) {
           ctx.font = '13px monospace'
           ctx.fillStyle = i%4===0 ? `${C.neon}50` : `${C.neon}20`
-          ctx.fillText(chars[Math.floor(Math.random()*chars.length)], i*18, y*18)
-          if (y*18 > canvas.height && Math.random() > 0.975) drops[i] = 0
+          ctx.fillText(chars[Math.floor(Math.random()*chars.length)], i*S + offsets[i], drops[i]*S)
+          if (drops[i]*S > canvas.height && Math.random() > 0.975) { drops[i] = 0; offsets[i] = Math.random() * S - S/2 }
           drops[i] += 0.5
-        })
+        }
         last = ts
       }
       raf = requestAnimationFrame(draw)
     }
     raf = requestAnimationFrame(draw)
-    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize) }
+    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', init) }
   }, [])
 
   useEffect(() => {
@@ -354,7 +359,8 @@ export default function App() {
         <div style={{ display:activeTab==='home'?'flex':'none', flex:1, position:'relative', minHeight:'calc(100vh - 76px)' }}>
           <canvas ref={canvasRef} style={{ position:'absolute', inset:0, width:'100%', height:'100%', opacity:0.45, pointerEvents:'none' }} />
           <div style={{ position:'relative', zIndex:2, width:'100%', padding:'clamp(1rem,4vw,2.5rem)', display:'flex', alignItems:'center', justifyContent:'center' }}>
-            <div style={{ background:C.surface, border:`1px solid ${C.border}`, borderRadius:'10px', overflow:'hidden', boxShadow:`0 0 60px ${C.neon}15`, width:'100%', maxWidth:'860px' }}>
+            <div style={{ width:'100%', maxWidth:'860px', display:'flex', flexDirection:'column', alignItems:'flex-end' }}>
+            <div style={{ background:C.surface, border:`1px solid ${C.border}`, borderRadius:'10px', overflow:'hidden', boxShadow:`0 0 60px ${C.neon}15`, width:'100%' }}>
               <div ref={termBodyRef} onClick={() => inputRef.current?.focus()}
                 onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}
                 style={{ padding:'clamp(0.75rem,3vw,1.25rem)', minHeight:'clamp(280px,55vh,480px)', maxHeight:'72vh', overflowY:'auto', cursor:'text' }}>
@@ -391,6 +397,13 @@ export default function App() {
                   )
                 )}
               </div>
+            </div>
+              <button onClick={() => { runCmd('help'); setInput(''); inputRef.current?.focus() }}
+                style={{ background:'none', border:`1px solid ${C.border}`, borderRadius:'6px', color:C.muted, fontFamily:mono, fontSize:'clamp(0.55rem,1.5vw,0.68rem)', padding:'0.35rem 0.75rem', cursor:'pointer', marginTop:'0.6rem', transition:'color 0.15s,border-color 0.15s' }}
+                onMouseEnter={e => { e.target.style.color=C.neon; e.target.style.borderColor=C.neon }}
+                onMouseLeave={e => { e.target.style.color=C.muted; e.target.style.borderColor=C.border }}>
+                ? help
+              </button>
             </div>
           </div>
         </div>
