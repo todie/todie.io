@@ -54,11 +54,11 @@ all others             → denied / refused / timeout + perm alert
 
 ## Build & deploy
 npm run dev           local dev — http://localhost:5173
-npm run build         production build → dist/
+npm run build         production build → docs/
 GITHUB_PAGES=true     sets Vite base to /todie.io/ for Pages asset paths
 
-GitHub Actions deploy on push to main via .github/workflows/deploy.yml
-Enable: repo Settings → Pages → Source: GitHub Actions
+GitHub Actions deploy on push to master via .github/workflows/deploy.yml
+Enable: repo Settings → Pages → Source: Deploy from branch → master → /docs
 URL: https://todie.github.io/todie.io/
 
 ## Quick start for Claude Code
