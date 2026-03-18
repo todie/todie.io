@@ -62,7 +62,7 @@ export function useTerminal({ onTop, onSshKill }) {
       return [{ t:'err', v:`cat: ${path}: No such file or directory` }]
     }
 
-    if (lower.startsWith('ls')) {
+    if (lower === 'ls' || lower.startsWith('ls ')) {
       const path = trimmed.slice(2).trim().replace(/\/+$/, '')
       if (!path) return [{ t:'out', v:STATIC_CMDS['ls'] }]
       const entries = FS_DIRS[path]
