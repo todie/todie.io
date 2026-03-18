@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;display=swap');
+      .mono { font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0d1117" rx="0"/>
+
+  <!-- Terminal window -->
+  <rect x="60" y="40" width="1080" height="550" rx="10" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+
+  <!-- Title bar -->
+  <rect x="60" y="40" width="1080" height="44" rx="10" fill="#161b22"/>
+  <rect x="60" y="74" width="1080" height="10" fill="#161b22"/>
+  <line x1="60" y1="84" x2="1140" y2="84" stroke="#30363d" stroke-width="1"/>
+
+  <!-- Traffic light dots -->
+  <circle cx="90" cy="62" r="7" fill="#ff5f57"/>
+  <circle cx="114" cy="62" r="7" fill="#febc2e"/>
+  <circle cx="138" cy="62" r="7" fill="#28c840"/>
+
+  <!-- Title bar text -->
+  <text x="600" y="67" text-anchor="middle" class="mono" fill="#8b949e" font-size="13">chris@todie.io: ~</text>
+
+  <!-- Terminal content -->
+  <!-- Line 1: whoami command -->
+  <text x="90" y="120" class="mono" font-size="15">
+    <tspan fill="#00f5d4">ct:~$ </tspan><tspan fill="#e6edf3">whoami</tspan>
+  </text>
+
+  <!-- Line 2: whoami output -->
+  <text x="90" y="148" class="mono" font-size="15" fill="#7ee787">christian (uid=1000 gid=1000 groups=sudo,docker,cloud-admins)</text>
+
+  <!-- Line 3: cat command -->
+  <text x="90" y="190" class="mono" font-size="15">
+    <tspan fill="#00f5d4">ct:~$ </tspan><tspan fill="#e6edf3">cat ~/about.txt</tspan>
+  </text>
+
+  <!-- Line 4-10: about box output -->
+  <text x="90" y="218" class="mono" font-size="15" fill="#7ee787">&#x250C;&#x2500; ABOUT &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2510;</text>
+  <text x="90" y="246" class="mono" font-size="15" fill="#7ee787">&#x2502;  Name:   Christian Todie                          &#x2502;</text>
+  <text x="90" y="274" class="mono" font-size="15" fill="#7ee787">&#x2502;  Role:   Infrastructure &amp; Cloud Engineer          &#x2502;</text>
+  <text x="90" y="302" class="mono" font-size="15" fill="#7ee787">&#x2502;  Focus:  Linux &#xB7; Cloud &#xB7; DevOps                   &#x2502;</text>
+  <text x="90" y="330" class="mono" font-size="15" fill="#7ee787">&#x2502;                                                   &#x2502;</text>
+  <text x="90" y="358" class="mono" font-size="15" fill="#7ee787">&#x2502;  Building resilient, scalable infrastructure      &#x2502;</text>
+  <text x="90" y="386" class="mono" font-size="15" fill="#7ee787">&#x2502;  across cloud and on-prem environments.           &#x2502;</text>
+  <text x="90" y="414" class="mono" font-size="15" fill="#7ee787">&#x2514;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2510;</text>
+
+  <!-- Line 11: empty prompt with cursor -->
+  <text x="90" y="456" class="mono" font-size="15">
+    <tspan fill="#00f5d4">ct:~$ </tspan><tspan fill="#e6edf3">&#x2588;</tspan>
+  </text>
+
+  <!-- Subtle neon glow on terminal border -->
+  <rect x="60" y="40" width="1080" height="550" rx="10" fill="none" stroke="#00f5d4" stroke-width="1" opacity="0.15"/>
+
+  <!-- Site URL watermark -->
+  <text x="600" y="560" text-anchor="middle" class="mono" font-size="13" fill="#8b949e" opacity="0.6">todie.io</text>
+</svg>
