@@ -1,17 +1,20 @@
 export const SKILLS = [
-  { name: "Linux Systems",              pct: 95, items: ["RHEL","Ubuntu","Debian","Alpine"] },
-  { name: "Cloud Platforms",            pct: 90, items: ["AWS","GCP","Azure"] },
-  { name: "Infrastructure as Code",     pct: 88, items: ["Terraform","Ansible","Pulumi"] },
-  { name: "Containers & Orchestration", pct: 85, items: ["Docker","Kubernetes","Helm"] },
-  { name: "CI/CD & GitOps",             pct: 82, items: ["GitHub Actions","ArgoCD","Jenkins"] },
-  { name: "Observability",              pct: 80, items: ["Prometheus","Grafana","ELK Stack"] },
-  { name: "Scripting & Dev",            pct: 78, items: ["Bash","Python","Go","HCL"] },
+  { name: "Rust",                   pct: 92, items: ["Tokio","async","MCP servers","zerocopy"] },
+  { name: "AI Agent Systems",       pct: 95, items: ["Claude Code","MCP","multi-agent orchestration"] },
+  { name: "Distributed Systems",    pct: 88, items: ["coordination","messaging","consensus"] },
+  { name: "Go",                     pct: 85, items: ["services","CLIs","daemons"] },
+  { name: "Kubernetes & GitOps",    pct: 88, items: ["Helm","ArgoCD","Talos"] },
+  { name: "Cloud & Edge",           pct: 85, items: ["Cloudflare Workers","Pages","AWS","GCP"] },
+  { name: "Infrastructure as Code", pct: 85, items: ["Terraform","HCL","Ansible"] },
+  { name: "Scripting & Dev",        pct: 85, items: ["Bash","Python","Zsh","HCL"] },
 ];
 
 export const PROJECTS = [
-  { name: "cloud-migration-framework", desc: "Zero-downtime migration of legacy monolith to AWS microservices. Reduced costs 40%, improved availability to 99.99% SLA.", tags: ["AWS","Terraform","Python","Ansible"], status: "prod", metrics: ["40% cost reduction","99.99% uptime","0s downtime"] },
-  { name: "k8s-autoscaling-pipeline",  desc: "Event-driven Kubernetes CI/CD with KEDA autoscaling. Handles 10x traffic spikes, sub-60s scale-out, full GitOps.", tags: ["Kubernetes","ArgoCD","KEDA","Helm"], status: "prod", metrics: ["10x spike handling","<60s scale time","GitOps driven"] },
-  { name: "infra-monitoring-stack",    desc: "Full-stack observability with dashboards, SLO tracking, and automated incident response across multi-cloud.", tags: ["Prometheus","Grafana","Elasticsearch","PagerDuty"], status: "active", metrics: ["Multi-cloud","Auto-remediation","SLO tracking"] },
+  { name: "agent-estate", desc: "Private multi-agent platform across a Kubernetes estate — mesh messaging between agent lanes, forge automation with PR scoring, durable agent memory, and an audit/control plane.", tags: ["Rust","Kubernetes","Multi-Agent","MCP"], status: "prod", metrics: ["Agent mesh","Forge automation","Durable memory"] },
+  { name: "openrig", desc: "Persistent teams of coding agents — Claude Code, Codex, Pi — with roles, shared context, and owned work. Contributed per-agent Claude plugin-channel selection.", tags: ["Agents","Claude Code","TypeScript"], status: "active", metrics: ["Multi-agent teams","Per-agent channels","Role-based"] },
+  { name: "rea", desc: "Reverse-engineer anything with agents — from app behaviour down to native binaries: Mach-O, managed code, and GPU targets.", tags: ["Rust","Agents","Reverse Engineering"], status: "active", metrics: ["Native binaries","Mach-O / CLR","Agent-driven"] },
+  { name: "engram-rs", desc: "Persistent memory for AI coding assistants — hybrid search, smart context, and an MCP server.", tags: ["Rust","MCP","SQLite"], status: "active", metrics: ["Hybrid search","MCP server","Local-first"] },
+  { name: "nahbro.dev", desc: "nahbro as a service — tell LLMs no.", tags: ["Python","LLM"], status: "prod", metrics: ["LLM guardrail","SaaS","Minimal"] },
 ];
 
 export const CONTACT = [
@@ -43,7 +46,7 @@ export const BASE_PROCS = [
 export const DAEMONS = {
   about:    ["Starting portfolio-about.service...","Loading user profile data...","[  OK  ] Started portfolio-about.service.","[  OK  ] Reached target about.target."],
   skills:   ["Starting portfolio-skills.service...","Loading skill manifests from /etc/skills.d/...","Verifying checksums... done.","[  OK  ] Started portfolio-skills.service.","[  OK  ] Reached target skills.target."],
-  projects: ["Starting portfolio-projects.service...","Pulling refs from origin/main...","Verifying deployment status... PROD · PROD · ACTIVE","[  OK  ] Started portfolio-projects.service.","[  OK  ] Reached target projects.target."],
+  projects: ["Starting portfolio-projects.service...","Pulling refs from origin/main...","Verifying deployment status... PROD · ACTIVE · ACTIVE · ACTIVE · PROD","[  OK  ] Started portfolio-projects.service.","[  OK  ] Reached target projects.target."],
   contact:  ["Starting portfolio-contact.service...","Opening socket on port 443...","Binding to chris@todie.io...","[  OK  ] Started portfolio-contact.service.","[  OK  ] Reached target contact.target."],
   cv:       ["Starting portfolio-cv.service...","Checking file integrity... sha256 OK","WARNING: File may contain unexpected content","[  OK  ] Started portfolio-cv.service.","[  OK  ] Reached target cv.target."],
 };
