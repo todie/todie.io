@@ -27,7 +27,7 @@ function About() {
         <div style={{ background:C.surface, border:`1px solid ${C.border}`, borderRadius:'8px', padding:'1.5rem' }}>
           <div style={{ color:C.neon, fontSize:'0.72rem', marginBottom:'1.25rem' }}>$ cat about.json</div>
           <div style={{ color:C.muted, fontSize:'0.72rem', marginBottom:'0.5rem' }}>{'{'}</div>
-          {[['name','"Christian Todie"'],['role','"Infrastructure & Cloud Eng."'],['location','"Remote / On-site"'],['experience','"5+ years"'],['focus','["Cloud","Linux","DevOps"]'],['available','true']].map(([k,v]) => (
+          {[['name','"Christian Todie"'],['role','"Agent Infrastructure Engineer"'],['location','"Remote / On-site"'],['experience','"5+ years"'],['focus','["Agents","Rust","Distributed Systems"]'],['available','true']].map(([k,v]) => (
             <div key={k} style={{ fontSize:'0.76rem', marginBottom:'0.4rem', paddingLeft:'1rem' }}>
               <span style={{ color:C.purple }}>"{k}"</span><span style={{ color:C.muted }}>: </span><span style={{ color:C.green }}>{v}</span>
             </div>
